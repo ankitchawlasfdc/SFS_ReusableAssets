@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFS_RA_Batch_Size_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+  NOT( ISBLANK( SFS_RA_Batch_Size__c ) ),
+  OR( SFS_RA_Batch_Size__c &gt; 2000,
+      SFS_RA_Batch_Size__c &lt;= 0 ) 
+ )</errorConditionFormula>
+    <errorDisplayField>SFS_RA_Batch_Size__c</errorDisplayField>
+    <errorMessage>Batch size can be between 1 to 2000</errorMessage>
+</ValidationRule>

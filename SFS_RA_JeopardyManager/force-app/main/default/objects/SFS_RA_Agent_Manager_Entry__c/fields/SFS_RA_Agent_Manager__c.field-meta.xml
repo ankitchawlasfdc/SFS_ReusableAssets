@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFS_RA_Agent_Manager__c</fullName>
+    <externalId>false</externalId>
+    <label>Agent Manager</label>
+    <referenceTo>SFS_RA_Agent_Manager__c</referenceTo>
+    <relationshipLabel>Agent Manager Entries</relationshipLabel>
+    <relationshipName>SFS_RA_Agent_Manager_Entries</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

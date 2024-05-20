@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>SFS_RA_ABServApptBulkFeedDisptBatch</members>
+		<members>SFS_RA_ABServApptBulkFeedDisptBatchTest</members>
+		<members>SFS_RA_ABServApptDripDisptachBatch</members>
+		<members>SFS_RA_ABServApptDripDisptachBatchTest</members>
+		<members>SFS_RA_ConstantsUtil</members>
+		<members>SFS_RA_SerApptDispatchingPolicyHelper</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>SFS_RA_Agent_Manager_Entry__c.SFS_RA_Agent_Manager__c</members>
+		<members>SFS_RA_Agent_Manager_Entry__c.SFS_RA_Based_On__c</members>
+		<members>SFS_RA_Agent_Manager_Entry__c.SFS_RA_Consider_Travel_Time__c</members>
+		<members>SFS_RA_Agent_Manager_Entry__c.SFS_RA_Enabled__c</members>
+		<members>SFS_RA_Agent_Manager_Entry__c.SFS_RA_End_Time__c</members>
+		<members>SFS_RA_Agent_Manager_Entry__c.SFS_RA_Jeopardy_Type__c</members>
+		<members>SFS_RA_Agent_Manager_Entry__c.SFS_RA_Sequence_No__c</members>
+		<members>SFS_RA_Agent_Manager_Entry__c.SFS_RA_Start_Time__c</members>
+		<members>SFS_RA_Agent_Manager_Entry__c.SFS_RA_Status__c</members>
+		<members>SFS_RA_Agent_Manager__c.SFS_RA_Additional_Considerations__c</members>
+		<members>SFS_RA_Agent_Manager__c.SFS_RA_Agent_Type__c</members>
+		<members>SFS_RA_Agent_Manager__c.SFS_RA_Batch_Size__c</members>
+		<members>SFS_RA_Agent_Manager__c.SFS_RA_Enabled__c</members>
+		<members>SFS_RA_Agent_Manager__c.SFS_RA_Schedule_Frequency__c</members>
+		<members>SFS_RA_Agent_Manager__c.SFS_RA_Service_Territory__c</members>
+		<members>SFS_RA_Agent_Manager__c.SFS_RA_Type__c</members>
+		<members>ServiceResource.Dispatch_Policy__c</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>SFS_RA_Agent_Manager_Entry__c</members>
+		<members>SFS_RA_Agent_Manager__c</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>SFS_RA_Agent_Manager_Entry_Record_Page</members>
+		<members>SFS_RA_Agent_Manager_Record_Page</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
+		<members>SFS_RA_Agent_Manager_Entry__c-Agent Manager Entry Layout</members>
+		<members>SFS_RA_Agent_Manager__c-Agent Manager Layout</members>
+		<name>Layout</name>
+	</types>
+	<types>
+		<members>SFS_RA_Agent_Manager</members>
+		<name>PermissionSet</name>
+	</types>
+	<version>58.0</version>
+</Package>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFS_RA_Based_On__c</fullName>
+    <externalId>false</externalId>
+    <label>Based On</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ActualStartTime</fullName>
+                <default>false</default>
+                <label>Actual Time</label>
+            </value>
+            <value>
+                <fullName>ArrivalWindowStartTime</fullName>
+                <default>false</default>
+                <label>Arrival Time</label>
+            </value>
+            <value>
+                <fullName>SchedStartTime</fullName>
+                <default>false</default>
+                <label>Scheduled Start Time</label>
+            </value>
+            <value>
+                <fullName>DueDate</fullName>
+                <default>false</default>
+                <label>Due Date</label>
+            </value>
+            <value>
+                <fullName>SchedEndTime</fullName>
+                <default>false</default>
+                <label>Scheduled End Time</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

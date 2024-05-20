@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <customErrors>
+        <name>Stop_Controller_record_creation</name>
+        <label>Stop Controller record creation</label>
+        <locationX>50</locationX>
+        <locationY>611</locationY>
+        <customErrorMessages>
+            <errorMessage>Controller record of Agent Type - {!$Record.SFS_RA_Agent_Type__c} already exists - {!Get_Controller_Record_for_Same_Agent_Type.Name}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Stop_Territory_Decomposition_Record_Creation</name>
+        <label>Stop Territory Decomposition Record Creation</label>
+        <locationX>578</locationX>
+        <locationY>719</locationY>
+        <customErrorMessages>
+            <errorMessage>Territory Decomposition record already exists for Service Territory {!$Record.SFS_RA_Service_Territory__r.Name} - {!Get_Jeopardy_Territory_Decomposition_for_Same_Territory.Name}</errorMessage>
+            <fieldSelection>SFS_RA_Service_Territory__r</fieldSelection>
+            <isFieldError>true</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>Controller_Record_for_same_Agent_type_exists</name>
+        <label>Controller Record for same Agent type exists?</label>
+        <locationX>182</locationX>
+        <locationY>503</locationY>
+        <defaultConnectorLabel>NO</defaultConnectorLabel>
+        <rules>
+            <name>YES_Controller_Record_for_same_Agent_type_exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Controller_Record_for_Same_Agent_Type</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>formNewOrTerritoryChangedOrAgentTypeChanged</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Stop_Controller_record_creation</targetReference>
+            </connector>
+            <label>YES</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Controller_Record</name>
+        <label>Is Controller Record?</label>
+        <locationX>545</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Is_Jeopardy_Territory_Decomposition_Record</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>NO</defaultConnectorLabel>
+        <rules>
+            <name>YES_Is_Controller_Record</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SFS_RA_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Controller Record</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Controller_Record_for_Same_Agent_Type</targetReference>
+            </connector>
+            <label>YES</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Jeopardy_Territory_Decomposition_Record</name>
+        <label>Is Jeopardy Territory Decomposition Record?</label>
+        <locationX>908</locationX>
+        <locationY>395</locationY>
+        <defaultConnectorLabel>NO</defaultConnectorLabel>
+        <rules>
+            <name>YES_Territory_Decomposition_Record</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SFS_RA_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Territory Decomposition</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SFS_RA_Agent_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Jeopardy Agent</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Jeopardy_Territory_Decomposition_for_Same_Territory</targetReference>
+            </connector>
+            <label>YES</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Territory_Decomposition_for_Same_Territory_Exists</name>
+        <label>Territory Decomposition for Same Territory Exists?</label>
+        <locationX>710</locationX>
+        <locationY>611</locationY>
+        <defaultConnectorLabel>NO</defaultConnectorLabel>
+        <rules>
+            <name>YES_Territory_Decomposition_for_Same_Territory_Exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Jeopardy_Territory_Decomposition_for_Same_Territory</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>formNewOrTerritoryChangedOrAgentTypeChanged</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Stop_Territory_Decomposition_Record_Creation</targetReference>
+            </connector>
+            <label>YES</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>formNewOrTerritoryChangedOrAgentTypeChanged</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()
+||
+ISCHANGED( {!$Record.SFS_RA_Service_Territory__c} )
+||
+ISCHANGED( {!$Record.SFS_RA_Agent_Type__c} )</expression>
+    </formulas>
+    <interviewLabel>Record Trigger: Agent Manager : Before Create/ Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Trigger: Agent Manager : Before Create/ Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Controller_Record_for_Same_Agent_Type</name>
+        <label>Get Controller Record for Same Agent Type</label>
+        <locationX>182</locationX>
+        <locationY>395</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Controller_Record_for_same_Agent_type_exists</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SFS_RA_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Controller Record</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>SFS_RA_Agent_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SFS_RA_Agent_Type__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>SFS_RA_Agent_Manager__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Jeopardy_Territory_Decomposition_for_Same_Territory</name>
+        <label>Get Jeopardy Territory Decomposition for Same Territory</label>
+        <locationX>710</locationX>
+        <locationY>503</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Territory_Decomposition_for_Same_Territory_Exists</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SFS_RA_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Territory Decomposition</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>SFS_RA_Service_Territory__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SFS_RA_Service_Territory__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>SFS_RA_Agent_Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SFS_RA_Agent_Type__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>SFS_RA_Agent_Manager__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>419</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Controller_Record</targetReference>
+        </connector>
+        <object>SFS_RA_Agent_Manager__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

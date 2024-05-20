@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFS_RA_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Controller Record</fullName>
+                <default>false</default>
+                <label>Controller Record</label>
+            </value>
+            <value>
+                <fullName>Territory Decomposition</fullName>
+                <default>false</default>
+                <label>Territory Decomposition</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

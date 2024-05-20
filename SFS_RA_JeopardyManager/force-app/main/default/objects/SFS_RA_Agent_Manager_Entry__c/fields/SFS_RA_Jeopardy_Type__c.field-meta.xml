@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFS_RA_Jeopardy_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Jeopardy Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Late Start Travel</fullName>
+                <default>false</default>
+                <label>Late Start Travel</label>
+            </value>
+            <value>
+                <fullName>Late Completion</fullName>
+                <default>false</default>
+                <label>Late Completion</label>
+            </value>
+            <value>
+                <fullName>Rescheduling Required</fullName>
+                <default>false</default>
+                <label>Rescheduling Required</label>
+            </value>
+            <value>
+                <fullName>Due Date Approaching</fullName>
+                <default>false</default>
+                <label>Due Date Approaching</label>
+            </value>
+            <value>
+                <fullName>Late Arrival</fullName>
+                <default>false</default>
+                <label>Late Arrival</label>
+            </value>
+            <value>
+                <fullName>Delayed Start</fullName>
+                <default>false</default>
+                <label>Delayed Start</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

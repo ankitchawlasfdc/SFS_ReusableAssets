@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This is a generic component for jeopardy alerts.</description>
+    <types>
+        <members>SFS_RA_ConstantsUtil</members>
+        <members>SFS_RA_ServiceAppointmentJeopardyBatch</members>
+        <members>SFS_RA_ServiceAppointmentJeopardyHelper</members>
+        <members>SFS_RA_ServiceAppointmentJeopardyTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>SFS_RA_Agent_Manager__c</members>
+        <members>SFS_RA_Agent_Manager_Entry__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>SFS_RA_Agent_Manager__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>SFS_RA_Agent_Manager_Record_Page</members>
+        <members>SFS_RA_Agent_Manager_Entry_Record_Page</members>
+        <name>Flexipage</name>
+    </types>
+    <types>
+        <members>SFS_RA_Record_Trigger_Agent_Manager_Before_Create_Update</members>
+        <members>SFS_RA_Record_Trigger_Agent_Manager_Entry_Before_Create_Update</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>SFS_RA_Agent_Manager__c-Agent Manager Layout</members>
+        <members>SFS_RA_Agent_Manager_Entry__c-Agent Manager Entry Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>SFS_RA_Agent_Manager</members>
+        <name>PermissionSet</name>
+    </types>  
+    <types>
+        <members>SFSRAReports</members>
+        <members>SFSRAReports/SFS_RA_Service_Appointments_In_Jeopardy</members>
+        <name>Report</name>
+    </types>  
+    <types>
+        <members>SFS_RA_Service_Appointments</members>
+        <name>ReportType</name>
+    </types> 
+    <version>59.0</version>
+</Package>

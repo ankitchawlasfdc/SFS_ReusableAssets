@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFS_RA_Agent_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Agent Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Jeopardy Agent</fullName>
+                <default>false</default>
+                <label>Jeopardy Agent</label>
+            </value>
+            <value>
+                <fullName>Drip Feed</fullName>
+                <default>false</default>
+                <label>Drip Feed</label>
+            </value>
+            <value>
+                <fullName>Bulk Feed</fullName>
+                <default>false</default>
+                <label>Bulk Feed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
